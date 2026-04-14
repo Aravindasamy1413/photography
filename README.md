@@ -36,5 +36,11 @@ This is a Django-based Photography Booking System where users can:
 3. Run server:
    python manage.py runserver
 
+
+<img width="1918" height="1078" alt="11" src="https://github.com/user-attachments/assets/417e9d60-eaf5-4f78-8072-c69963424b02" />
+
+
+
+
 ## 👨‍💻 Author
 Aravindasamy
