@@ -137,8 +137,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'enter your email id'
-# EMAIL_HOST_PASSWORD = 'enter your email password'
-EMAIL_HOST_PASSWORD = 'enter your email password'
+# EMAIL_HOST_PASSWORD = 'enter your email app password'
+EMAIL_HOST_PASSWORD = 'enter your email app password'
 
 DEFAULT_FROM_EMAIL = 'enter your email id'
 
