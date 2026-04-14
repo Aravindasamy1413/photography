@@ -1,0 +1,137 @@
+## 🖼️ Adding Images to Gallery
+
+To display images in the Gallery page, follow the steps below:
+
+### 1️⃣ Create Admin (Superuser)
+
+First, create a superuser to access the Django admin panel:
+
+```bash
+python manage.py createsuperuser
+```
+
+Then login at:
+http://127.0.0.1:8000/admin/
+
+---
+
+### 2️⃣ Open Gallery Section
+
+In the admin dashboard, navigate to the **Gallery** section.
+
+---
+
+### 3️⃣ Add New Image
+
+* Click on **Add Gallery**
+* Upload the image
+* Provide a **caption**
+* Enter a **category name**
+
+---
+
+### 4️⃣ Important: Category Name
+
+Make sure the category name matches the one used in the frontend.
+
+👉 You can find valid category names in:
+
+```
+templates/gallery.html
+```
+
+⚠️ If the category name does not match:
+
+* Images will **not be displayed**
+* Gallery page may appear **empty**
+
+---
+
+### ✅ Final Result
+
+Once the correct category is used:
+
+* Images will be displayed properly in the Gallery page
+* Categories will filter images as expected
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+## 📧 Email Configuration (SMTP Setup)
+
+This project uses Gmail SMTP to send emails (e.g., booking confirmation, notifications).
+
+Follow the steps below to configure email functionality:
+
+---
+
+### 1️⃣ Enable App Password (Important)
+
+For security reasons, Gmail does not allow normal passwords.
+
+👉 You must generate an **App Password**:
+
+* Go to your Google Account → Security
+* Enable **2-Step Verification**
+* Search for **App Passwords**
+* Generate a new app password for "Mail"
+
+---
+
+### 2️⃣ Update Email Settings
+
+Open your `settings.py` file and update the following configuration:
+
+```python id="q4rt0k"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-app-password'
+
+DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+
+EMAIL_TIMEOUT = 30
+```
+
+---
+
+### 3️⃣ Important Notes
+
+* ⚠️ Do NOT use your Gmail login password
+* ✅ Always use the generated **App Password**
+* 🔒 Never share your email credentials publicly (especially on GitHub)
+
+---
+
+### 4️⃣ Security Best Practice (Recommended)
+
+Instead of hardcoding credentials, use environment variables:
+
+```python id="2cf6lj"
+import os
+
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+```
+
+Create a `.env` file:
+
+```env id="h68k1o"
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password
+```
+
+---
+
+### ✅ Result
+
+Once configured correctly:
+
+* Emails will be sent successfully from the application
+* Features like booking confirmation will work properly

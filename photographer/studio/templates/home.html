@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photography Studio</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- 🔥 Navbar
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">📸 My Studio</a>
+    </div>
+</nav> -->
+
+<div class="container mt-3">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endif %}    
+</div>
+
+<!-- 🔥 Hero Section
+<div class="container text-center mt-5">
+    <h1>Welcome to My Photography Studio 📸</h1>
+    <p>Capture your beautiful moments with us</p>
+
+    <a href="/booking/" class="btn btn-primary m-2">Book Event</a>
+    <a href="/frame-order/" class="btn btn-success m-2">Order Frame</a>
+    
+</div> -->
+
+<div class="bg-dark text-white text-center p-5">
+    <h1>📸 Welcome to Professional Photography Studio</h1>
+    <p>Capture your beautiful moments with us</p>
+
+    <a href="/booking/" class="btn btn-primary m-2">Book Event</a>
+    <a href="/frame-order/" class="btn btn-success m-2">Order Frame</a>
+    <a href="/gallery/" class="btn btn-warning m-2">View Gallery</a>
+    <a href="/contact/" class="btn btn-primary m-1">Contact</a>
+    <a href="/track/" class="btn btn-success m-2">Track My Frame</a>
+</div>
+
+
+
+<div class="container mt-5 text-center">
+    <h2>Our Services</h2>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h4>🎉 Event Photography</h4>
+            <p>Wedding, Birthday, College events, etc.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>🖼️ Frame Orders</h4>
+            <p>Custom frames with your photos</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>📷 Photo Shoot</h4>
+            <p>Outdoor & Indoor , Studio shoots</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 text-center">
+    <h2>Gallery</h2>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <img src="/static/images/frames/photo1.jpg" class="img-fluid rounded">
+        </div>
+
+        <div class="col-md-4">
+             <img src="/static/images/frames/photo2.jpg" class="img-fluid rounded">
+        </div>
+
+        <div class="col-md-4">
+             <img src="/static/images/frames/photo3.jpg" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 text-center">
+    <h2>Pricing</h2>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h4>Wedding</h4>
+            <p>₹20,000</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Birthday</h4>
+            <p>₹5,000</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Frame</h4>
+            <p>₹500+</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-light text-center p-5 mt-5">
+    <h3>Ready to Book Your Event?</h3>
+
+    <a href="/booking/" class="btn btn-primary m-2">Book Now</a>
+    <a href="/contact/" class="btn btn-dark m-2">Contact Us</a>
+</div>
+
+<footer class="bg-dark text-white text-center p-3 mt-5">
+    <p>© 2026 Professional Photography Studio</p>
+    <p>📞 0123456789 | 📧 xyz302@gmail.com</p>
+</footer>
+
+</body>
+</html>

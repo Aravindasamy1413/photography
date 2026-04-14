@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frame Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+
+/* 🌈 Background */
+body {
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🖼 Image Hover Effect */
+img {
+    transition: 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* 📦 Form Box */
+.form-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: slideUp 0.8s ease;
+}
+
+/* ✨ Input Styling */
+.form-control, select, textarea {
+    border-radius: 10px;
+    border: none;
+    padding: 12px;
+    background: rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+/* Focus Effect */
+.form-control:focus, select:focus, textarea:focus {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,123,255,0.4);
+    transform: scale(1.03);
+}
+
+/* 📁 File Input */
+input[type="file"] {
+    padding: 10px;
+    background: #fff;
+}
+
+/* 🟢 Button Style */
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #00c851);
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Hover Animation */
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ✨ Text Animation */
+h2, h3 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* 🎬 Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 📸 Frame Selection Highlight (if used later) */
+input[type="radio"]:checked + img {
+    border: 3px solid #28a745;
+    transform: scale(1.05);
+}
+
+</style>
+<body>
+<div class="container mt-5">
+    <h3 class="text-center mb-4">🖼 Available Frame Designs</h3>
+
+    <div class="row">
+
+        <!-- Wooden -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/wooden.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Wooden Frame</p>
+        </div>
+
+        <!-- Glass -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/glass.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Glass Frame</p>
+        </div>
+
+        <!-- Lamination -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/lamination.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Lamination</p>
+        </div>
+
+        <!-- Metal -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/metal.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Metal Frame</p>
+        </div>
+
+        <!-- Golden -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/golden.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Golden Frame</p>
+        </div>
+
+        
+
+        <!-- Beading -->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/beading.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Beading Frame</p>
+        </div>
+
+
+        <!--wall-->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/wall.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Golden wooden Frame</p>
+        </div>
+        
+
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/frames/light.jpg' %}" class="img-fluid rounded shadow">
+            <p class="mt-2">Light Frame</p>
+        </div>
+    </div>
+</div>
+
+<!---- Frame Order Form ---->
+<div class="container mt-5 form-box">
+    <h2 class="text-center">Order Your Photo Frame 🖼️</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="mt-4">
+        {% csrf_token %}
+
+        <input class="form-control mb-3" type="text" name="name" placeholder="Name" required>
+        <input class="form-control mb-3" type="email" name="email" placeholder="Email" required>
+        <input class="form-control mb-3" type="text" name="phone" placeholder="Phone" required>
+        
+        <small class="text-muted">You can upload 10-15 images</small>
+        <input class="form-control mb-3" type="file" name="photos" multiple required>
+
+        <!-- Frame Type -->
+<select name="frame_type" class="form-control mb-3" required>
+    <option value="">Select Frame Type</option>
+    <option value="Wooden">Golden Design Wooden</option>
+    <option value="Wooden">Plain color Wooden</option>
+    <option value="Glass">Glass</option>
+    <option value="Lamination">Lamination Frame</option>
+    <option value="Metal">Lamination Beading</option>
+    <option value="Metal">Light Frame</option>
+
+</select>
+
+<!-- Frame Size -->
+<select name="size" class="form-control mb-3" required>
+    <option value="">Select Size</option>
+    <option value="6x8">6 x 8</option>
+    <option value="8x12">8 x 12</option>
+    <option value="8x10">8 x 10</option>
+    <option value="12x15">12 x 15</option>
+    <option value="12x18">12 x 18</option>
+    <option value="A4">A4</option>
+    <option value="A3">A3</option>
+</select>
+
+        <input class="form-control mb-3" type="text" name="caption" placeholder="Enter caption for frame">
+
+        <textarea class="form-control mb-3" name="address" placeholder="Address city, Street, state, country, pincode" rows="3" required></textarea>
+
+        <button class="btn btn-success w-100">Order Now</button> 
+    </form>
+</div>
+
+</body>
+</html>
