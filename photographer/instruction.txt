@@ -6,6 +6,7 @@ To display images in the Gallery page, follow the steps below:
 
 First, create a superuser to access the Django admin panel:
 
+
 ```bash
 python manage.py createsuperuser
 ```
